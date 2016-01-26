@@ -7,7 +7,25 @@ public class Probability {
     }
 
 
-    public double notHappeningEvent() {
-        return (1 - this.valueAsFraction);
+    public Probability notHappeningEvent() {
+        return new Probability(1 - this.valueAsFraction);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Probability)) return false;
+
+        Probability that = (Probability) o;
+
+        if (Double.compare(that.valueAsFraction, valueAsFraction) != 0) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        long temp = Double.doubleToLongBits(valueAsFraction);
+        return (int) (temp ^ (temp >>> 32));
     }
 }

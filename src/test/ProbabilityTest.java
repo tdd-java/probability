@@ -4,10 +4,11 @@ import static junit.framework.Assert.assertEquals;
 
 public class ProbabilityTest {
 
-    private Probability probabilityOne;
+    private Probability probabilityOfEventHappening;
     @Test
     public void shouldReturnProbabilityNotGettingEvent(){
-        probabilityOne = new Probability(1.0);
-        assertEquals(1.6, probabilityOne.notHappeningEvent(), 0.1);
+        probabilityOfEventHappening = new Probability(0.6);
+        Probability probabilityOfEventNotHappening = new Probability(0.4);
+        assertEquals(probabilityOfEventNotHappening, probabilityOfEventHappening.notHappeningEvent());
     }
 }
