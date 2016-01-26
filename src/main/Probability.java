@@ -1,13 +1,13 @@
 public class Probability {
 
-    private double probability;
+    private double valueAsFraction;
 
     public Probability(double probability) {
-        this.probability = probability;
+        this.valueAsFraction = probability;
     }
 
 
     public double notHappeningEvent() {
-        return (1/this.probability);
+        return (1 - this.valueAsFraction);
     }
 }
