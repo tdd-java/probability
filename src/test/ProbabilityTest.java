@@ -11,4 +11,7 @@ public class ProbabilityTest {
         Probability probabilityOfEventNotHappening = new Probability(0.4);
         assertEquals(probabilityOfEventNotHappening, probabilityOfEventHappening.notHappeningEvent());
     }
+
+
+
 }
