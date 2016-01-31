@@ -28,4 +28,9 @@ public class Probability {
         long temp = Double.doubleToLongBits(valueAsFraction);
         return (int) (temp ^ (temp >>> 32));
     }
+
+    public Probability mutuallyInclusiveProbability(Probability other) {
+        return new Probability(this.valueAsFraction * other.valueAsFraction);
+    }
+
 }
