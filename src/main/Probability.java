@@ -1,36 +1,47 @@
 public class Probability {
 
-    private double valueAsFraction;
+    private double probability;
 
     public Probability(double probability) {
-        this.valueAsFraction = probability;
+        this.probability = probability;
     }
 
 
+    public Probability and(Probability other) {
+        return new Probability(this.probability * other.probability);
+    }
+
+    public Probability or(Probability other) {
+        double probabilityValue = this.probability + other.probability - this.probability * other.probability;
+        return new Probability(probabilityValue);
+    }
+
     public Probability notHappeningEvent() {
-        return new Probability(1 - this.valueAsFraction);
+        return new Probability(1 - this.probability);
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Probability)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
 
         Probability that = (Probability) o;
 
-        if (Double.compare(that.valueAsFraction, valueAsFraction) != 0) return false;
+        if (Double.compare(that.probability, probability) != 0) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        long temp = Double.doubleToLongBits(valueAsFraction);
+        long temp = Double.doubleToLongBits(probability);
         return (int) (temp ^ (temp >>> 32));
     }
 
-    public Probability mutuallyInclusiveProbability(Probability other) {
-        return new Probability(this.valueAsFraction * other.valueAsFraction);
+    @Override
+    public String toString() {
+        return "Probability{" +
+                "probability=" + probability +
+                '}';
     }
-
 }

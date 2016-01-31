@@ -13,12 +13,19 @@ public class ProbabilityTest {
 
 
     @Test
-    public void probabilityForMutuallyInclusiveEvents(){
+    public void probabilityForAnd(){
         Probability probabilityForEventOne = new Probability(0.6);
         Probability probabilityForEventTwo = new Probability(0.3);
         Probability expectedProbability = new Probability(0.18);
-        assertEquals(expectedProbability, probabilityForEventOne.mutuallyInclusiveProbability(probabilityForEventTwo));
+        assertEquals(expectedProbability, probabilityForEventOne.and(probabilityForEventTwo));
     }
 
+    @Test
+    public void probabilityForMutuallyExclusiveEvents(){
+        Probability probabilityForEventOne = new Probability(0.6);
+        Probability probabilityForEventTwo = new Probability(0.3);
+        Probability expectedProbability = new Probability(0.72);
+        assertEquals(expectedProbability, probabilityForEventOne.or(probabilityForEventTwo));
+    }
 
 }
