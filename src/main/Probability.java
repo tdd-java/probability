@@ -16,7 +16,7 @@ public class Probability {
         return new Probability(probabilityValue);
     }
 
-    public Probability notHappeningEvent() {
+    public Probability not() {
         return new Probability(1 - this.probability);
     }
 

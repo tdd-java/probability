@@ -8,9 +8,8 @@ public class ProbabilityTest {
     public void probabilityForNotGettingEvent(){
         Probability probabilityOfEventHappening = new Probability(0.6);
         Probability probabilityOfEventNotHappening = new Probability(0.4);
-        assertEquals(probabilityOfEventNotHappening, probabilityOfEventHappening.notHappeningEvent());
+        assertEquals(probabilityOfEventNotHappening, probabilityOfEventHappening.not());
     }
-
 
     @Test
     public void probabilityForAnd(){
